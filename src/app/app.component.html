@@ -1,4 +1,11 @@
-<cms-header></cms-header>
+<cms-header (selectedFeatureEvent)="switchView($event)"></cms-header>
+<!--<div class="container-fluid" [ngSwitch]="selectedFeature">
+    <cms-documents *ngSwitchWhen="selectedFeature === 'documents'"></cms-documents>
+    <cms-message-list *ngSwitchWhen="selectedFeature === 'messages'"></cms-message-list>
+    <cms-contacts *ngSwitchWhen="selectedFeature === 'contacts'"></cms-contacts>
+</div>-->
 <div class="container-fluid">
-    <cms-contacts></cms-contacts>
+    <cms-documents *ngIf="selectedFeature === 'documents'"></cms-documents>
+    <cms-message-list *ngIf="selectedFeature === 'messages'"></cms-message-list>
+    <cms-contacts *ngIf="selectedFeature === 'contacts'"></cms-contacts>
 </div>
