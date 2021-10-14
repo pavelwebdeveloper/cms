@@ -119,6 +119,15 @@ export const MOCKCONTACTS: Contact[] = [
     imageUrl: '../../assets/images/thompsonda.jpg',
     group: null
   },
+  // index 12
+  {
+    id: '18',
+    name: 'Pavel Shvets',
+    email: 'pavel@byui.edu',
+    phone: '208-496-7892',
+    imageUrl: '../../assets/images/fredFlintstone.jpg',
+    group: null
+  },
 
   // teams
   // index 13

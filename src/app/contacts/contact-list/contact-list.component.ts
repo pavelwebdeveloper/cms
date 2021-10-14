@@ -8,7 +8,7 @@ import { ContactService } from '../contact/contact.service';
   styleUrls: ['./contact-list.component.css']
 })
 export class ContactListComponent implements OnInit {
-  @Output() selectedContactEvent = new EventEmitter<Contact>();
+  //@Output() selectedContactEvent = new EventEmitter<Contact>();
   //contacts: Contact[] = [
     /*contacts: Array<Contact> = [
     new Contact("1", "R. Kent Jackson", "jacksonk@byui.edu", "208-496-3771", "../../assets/images/jacksonk.jpg", null),
@@ -23,7 +23,8 @@ export class ContactListComponent implements OnInit {
   }
 
   onSelected(contact: Contact){
-    this.selectedContactEvent.emit(contact);
+    //this.selectedContactEvent.emit(contact);
+    this.contactService.contactSelectedEvent.emit(contact);
   }
 
 }
