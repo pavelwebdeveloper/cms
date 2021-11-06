@@ -28,5 +28,11 @@
             <p><b>Phone: </b>{{ contact.phone }}</p>
         </div>
     </div>
+    <div *ngFor="let contact of contact.group; let i = index">
+        <div>
+          <cms-contact-item class="col-sm-11" [contact]="contact"></cms-contact-item>
+        </div>
+      </div>
+    </div>
+    
 </div>
-  </div>

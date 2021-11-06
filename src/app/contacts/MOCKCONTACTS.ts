@@ -121,7 +121,7 @@ export const MOCKCONTACTS: Contact[] = [
   },
   // index 12
   {
-    id: '18',
+    id: '70',
     name: 'Pavel Shvets',
     email: 'pavel@byui.edu',
     phone: '208-496-7892',
