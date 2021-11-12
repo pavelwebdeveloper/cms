@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContactService } from 'src/app/contacts/contact/contact.service';
 import { Message } from '../message.model';
 import { MessageService } from '../message/message.service';
 
@@ -17,15 +18,18 @@ export class MessageListComponent implements OnInit {
   ];*/
   messages: Message[] = [];
 
-  constructor(private messageService: MessageService) { }
+  constructor(private messageService: MessageService, private contactService: ContactService) { }
 
   ngOnInit(): void {
+    this.contactService.getContacts();
     this.messages = this.messageService.getMessages();
     this.messageService.messagesChangedEvent.subscribe(
       (messages: Message[]) => {
         this.messages = messages;
       }
     )
+    console.log("lets see sorted messages");
+    console.log(this.messages);
   }
 
   onAddMessage(message: Message){

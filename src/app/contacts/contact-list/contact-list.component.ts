@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Contact } from '../contact.model';
 import { ContactService } from '../contact/contact.service';
@@ -12,8 +13,9 @@ export class ContactListComponent implements OnInit, OnDestroy {
 
   contacts: Contact[] = [];
   private subscription: Subscription;
+  term: string;
 
-  constructor(private contactService: ContactService) { }
+  constructor(private contactService: ContactService, private router: Router) { }
 
   ngOnInit(): void {
     this.contacts = this.contactService.getContacts();
@@ -22,10 +24,16 @@ export class ContactListComponent implements OnInit, OnDestroy {
         this.contacts = contacts;
       }
     )
+    this.router.navigate(['/contacts']);
   }
 
   ngOnDestroy(): void{
     this.subscription.unsubscribe();
   }
 
+  search(value: string){
+
+    this.term = value;
+
+  }
 }

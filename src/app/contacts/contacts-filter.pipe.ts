@@ -15,7 +15,9 @@ export class ContactsFilterPipe implements PipeTransform {
       );
     }
 
-    if(filteredContacts.length < 0){
+    
+
+    if(filteredContacts.length == 0){
       return contacts;
     }    
 
