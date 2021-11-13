@@ -20,7 +20,7 @@ export class ContactService {
     //this.contacts = MOCKCONTACTS;
    }
 
-   getContacts(): Contact[]{
+  getContacts(): Contact[]{
     this.http.get('https://cms-project-862f1-default-rtdb.europe-west1.firebasedatabase.app/contacts.json')
     //this.http.get('https://cms-project-862f1-default-rtdb.europe-west1.firebasedatabase.app/')
     .subscribe((contacts: Contact[])=>{
@@ -68,7 +68,7 @@ export class ContactService {
   }
   
 
-   getContact(id: string): Contact{
+  getContact(id: string): Contact{
      for(let i=0;i<this.contacts.length;i++){
        if(this.contacts[i].id == id){
          return this.contacts[i];
