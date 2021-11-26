@@ -23,6 +23,9 @@ export class ContactDetailComponent implements OnInit {
       (params: Params) => {
         this.id = params['id'];
         this.contact = this.contactService.getContact(this.id);
+        console.log("Inside ngOnInit in contact-detail component");
+        console.log("this.contact");
+        console.log(this.contact);
       }
     );
   }

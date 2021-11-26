@@ -76,7 +76,7 @@ export class DocumentService {
   }
 
 
-  storeDocuments(){
+  /*storeDocuments(){
     const putData = JSON.stringify(this.documents);
     const headers = new HttpHeaders({"Content-Type":"application/json"});
     //this.http.put('https://cms-project-862f1-default-rtdb.europe-west1.firebasedatabase.app/documents.json', putData, {headers})
@@ -93,7 +93,7 @@ export class DocumentService {
       });
       this.documentListChangedEvent.next(this.documents.slice());
     })
-  }
+  }*/
   
 
   getDocument(id: string): Document{
@@ -137,7 +137,8 @@ export class DocumentService {
     .subscribe(
       (response: Response) => {
         this.documents.splice(pos, 1);
-        this.storeDocuments();
+        //this.storeDocuments();
+        this.documentListChangedEvent.next(this.documents.slice());
       }
     );
 }
@@ -194,7 +195,8 @@ export class DocumentService {
           this.documents.push(responseData.document);
           //this.sortAndSend();
           //let documentListClone = this.documents.slice();
-          this.storeDocuments();
+          //this.storeDocuments();
+          this.documentListChangedEvent.next(this.documents.slice());
         }
       );
   }
@@ -240,7 +242,8 @@ export class DocumentService {
         (response: Response) => {
           this.documents[pos] = newDocument;
           //this.sortAndSend();
-          this.storeDocuments();
+          //this.storeDocuments();
+          this.documentListChangedEvent.next(this.documents.slice());
         }
       );
   }

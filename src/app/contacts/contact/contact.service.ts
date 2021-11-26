@@ -14,7 +14,7 @@ export class ContactService {
   contactSelectedEvent = new EventEmitter<Contact>();
   //contactChangedEvent = new EventEmitter<Contact[]>();
   contactListChangedEvent = new Subject<Contact[]>();
-  maxContactId: number;
+  //maxContactId: number;
 
   constructor(private http: HttpClient, private router: Router) { 
     //this.contacts = MOCKCONTACTS;
@@ -29,9 +29,9 @@ export class ContactService {
       console.log("We are getting data");
       console.log(contacts);
       this.contacts = contacts.contacts;
-      this.maxContactId = this.getMaxId();
-      console.log("this.maxDocumentId");
-      console.log(this.maxContactId);
+      //this.maxContactId = this.getMaxId();
+      //console.log("this.maxDocumentId");
+      //console.log(this.maxContactId);
       this.contacts = this.contacts.sort((currentElement, nextElement)=>{
         if(currentElement.name < nextElement.name){          
           return -1;
@@ -51,7 +51,7 @@ export class ContactService {
   }
 
 
-  storeContacts(){
+  /*storeContacts(){
     const putData = JSON.stringify(this.contacts);
     const headers = new HttpHeaders({"Content-Type":"application/json"});
     //this.http.put('https://cms-project-862f1-default-rtdb.europe-west1.firebasedatabase.app/contacts.json', putData, {headers})
@@ -68,7 +68,7 @@ export class ContactService {
       });
       this.contactListChangedEvent.next(this.contacts.slice());
     })
-  }
+  }*/
   
 
   getContact(id: string): Contact{
@@ -109,12 +109,13 @@ export class ContactService {
         .subscribe(
           (response: Response) => {
             this.contacts.splice(pos, 1);
-            this.storeContacts();
+            //this.storeContacts();
+            this.contactListChangedEvent.next(this.contacts.slice());
           }
         );
     }
 
-    getMaxId(): number{
+    /*getMaxId(): number{
 
       let maxId = 0;
       let currentId = 0;
@@ -129,7 +130,7 @@ export class ContactService {
       });
       
       return maxId;
-    }
+    }*/
   
     // addContact method as it worked with FireBase
     /*addContact(newContact: Contact){
@@ -166,7 +167,8 @@ export class ContactService {
           this.contacts.push(responseData.contact);
           //this.sortAndSend();
           //let documentListClone = this.documents.slice();
-          this.storeContacts();
+          this.getContacts();
+          this.contactListChangedEvent.next(this.contacts.slice());
         }
       );
   }
@@ -212,7 +214,8 @@ export class ContactService {
         (response: Response) => {
           this.contacts[pos] = newContact;
           //this.sortAndSend();
-          this.storeContacts();
+          //this.storeContacts();
+          this.contactListChangedEvent.next(this.contacts.slice());
         }
       );
   }

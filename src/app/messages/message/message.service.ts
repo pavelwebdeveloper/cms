@@ -27,9 +27,9 @@ export class MessageService {
       console.log(messages.messages);
       this.messages = messages.messages;
       //this.documents = this.documents.splice(0, 3);
-      this.maxMessageId = this.getMaxId();
+      /*this.maxMessageId = this.getMaxId();
       console.log("this.maxDocumentId");
-      console.log(this.maxMessageId);
+      console.log(this.maxMessageId);*/
       this.messages = this.messages.sort((currentElement, nextElement)=>{
         if(+currentElement.sender < +nextElement.sender){
           
@@ -52,7 +52,7 @@ export class MessageService {
   }
 
 
-  storeMessages(){
+  /*storeMessages(){
     const putData = JSON.stringify(this.messages);
     const headers = new HttpHeaders({"Content-Type":"application/json"});
     //this.http.put('https://cms-project-862f1-default-rtdb.europe-west1.firebasedatabase.app/messages.json', putData, {headers})
@@ -69,7 +69,7 @@ export class MessageService {
       });
       this.messagesChangedEvent.next(this.messages.slice());
     })
-  }
+  }*/
   
 
    /*getMessages(): Message[]{
@@ -114,12 +114,12 @@ export class MessageService {
           this.messages.push(responseData.msg);
           //this.sortAndSend();
           //let documentListClone = this.documents.slice();
-          this.storeMessages();
+          //this.storeMessages();
         }
       );
   }
 
-   getMaxId(): number{
+   /*getMaxId(): number{
 
     let maxId = 0;
     let currentId = 0;
@@ -135,5 +135,5 @@ export class MessageService {
     });
     
     return maxId;
-  }
+  }*/
 }

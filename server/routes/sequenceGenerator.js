@@ -40,9 +40,15 @@ SequenceGenerator.prototype.nextId = function(collectionType) {
       nextId = maxMessageId;
       break;
     case 'contacts':
+      console.log("maxContactId before increment");
+      console.log(maxContactId);
       maxContactId++;
+      console.log("maxContactId after increment");
+      console.log(maxContactId);
       updateObject = {maxContactId: maxContactId};
       nextId = maxContactId;
+      console.log("nextId");
+      console.log(nextId);
       break;
     default:
       return -1;
