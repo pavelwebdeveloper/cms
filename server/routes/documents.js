@@ -21,6 +21,9 @@ router.get('/', (req, res, next) => {
 });
 
  router.post('/', (req, res, next) => {
+
+  
+
     const maxDocumentId = sequenceGenerator.nextId("documents");
   
     const document = new Document({
@@ -29,6 +32,9 @@ router.get('/', (req, res, next) => {
       description: req.body.description,
       url: req.body.url
     });
+
+    console.log("Inside router.post");
+  console.log(document);
   
     document.save()
       .then(createdDocument => {

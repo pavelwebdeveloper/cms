@@ -87,20 +87,23 @@ export class MessageService {
 
    // addMessage method as it worked with FireBase
    /*addMessage(message: Message){
-     this.messages.push(message);
-     this.storeMessages();
+     console.log(message);
+     //this.messages.push(message);
+     //this.storeMessages();
    }*/
 
    // addMessage method implemented in a new way to make an HTTP POST request to NodeJS server to add the Message
   // object passed as an argument to the messages collection in the MongoDB database server
 
   addMessage(msg: Message) {
+    console.log(msg);
     if (!msg) {
       return;
     }
 
     // make sure id of the new Document is empty
     msg.id = '';
+    console.log(msg);
 
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
 
@@ -115,6 +118,8 @@ export class MessageService {
           //this.sortAndSend();
           //let documentListClone = this.documents.slice();
           //this.storeMessages();
+          this.getMessages();
+          this.messagesChangedEvent.next(this.messages.slice());
         }
       );
   }

@@ -32,6 +32,9 @@ router.get('/', (req, res, next) => {
       imageUrl: req.body.imageUrl,
       group: req.body.group
     });
+
+    console.log("Inside contact router.post");
+  console.log(contact);
   
     contact.save()
       .then(createdContact => {

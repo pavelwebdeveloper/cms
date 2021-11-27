@@ -155,6 +155,8 @@ export class ContactService {
     // make sure id of the new Document is empty
     contact.id = '';
 
+    console.log(contact);
+
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
 
     // add to database

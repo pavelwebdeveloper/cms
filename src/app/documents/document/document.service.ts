@@ -183,6 +183,9 @@ export class DocumentService {
     // make sure id of the new Document is empty
     document.id = '';
 
+    console.log("inside service addDocument");
+    console.log(document);
+
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
 
     // add to database

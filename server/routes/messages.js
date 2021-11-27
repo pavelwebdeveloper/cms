@@ -23,8 +23,7 @@ router.get('/', (req, res, next) => {
 
  router.post('/', (req, res, next) => {
 
-  console.log("INSIDE router.post");
-  console.log(req);
+  
     const maxMessageId = sequenceGenerator.nextId("messages");
   
     const message = new Message({
@@ -33,6 +32,9 @@ router.get('/', (req, res, next) => {
       msgText: req.body.msgText,
       sender: req.body.sender
     });
+
+    console.log("Inside message router.post");
+  console.log(message);
   
     message.save()
       .then(createdMessage => {
