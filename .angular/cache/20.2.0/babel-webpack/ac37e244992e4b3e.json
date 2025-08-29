@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Contact {\n  constructor(id, name, email, phone, imageUrl, group) {\n    this.id = id;\n    this.name = name;\n    this.email = email;\n    this.phone = phone;\n    this.imageUrl = imageUrl;\n    this.group = group;\n  }\n}","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}
