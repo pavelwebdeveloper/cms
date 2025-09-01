@@ -5,7 +5,7 @@ FROM node:19
 # Set the working directory in the container
 WORKDIR /angapp
 
-COPY package.json /app/package.json
+COPY package.json /angapp/package.json
 
 # Copy the application files into the working directory
 COPY . /angapp
