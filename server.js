@@ -39,6 +39,10 @@ app.use(cookieParser());
 
 app.use(logger('dev')); // Tell express to use the Morgan logger
 
+//api initialize code
+Parse.initialize("bTZ3R4qULY67mdmKseZ7yIc0nk6vdTSdM4wNSUtz", "cCxPMw2PKy5IddR5syXz4hwsncLNUyCifqGcVw49");
+Parse.serverURL = "https://parseapi.back4app.com/";
+
 // Add support for CORS
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
