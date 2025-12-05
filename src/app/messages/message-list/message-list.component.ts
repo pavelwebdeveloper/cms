@@ -3,13 +3,17 @@ import { ContactService } from 'src/app/contacts/contact/contact.service';
 import { Message } from '../message.model';
 import { MessageService } from '../message/message.service';
 import { MessageEditComponent } from '../message-edit/message-edit.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'cms-message-list',
   standalone: true,
   templateUrl: './message-list.component.html',
   styleUrls: ['./message-list.component.css'],
-  imports: [MessageEditComponent]
+  imports: [
+    MessageEditComponent,
+    CommonModule
+  ]
 })
 export class MessageListComponent implements OnInit {
   //messages: Array<Message> = [

@@ -43,10 +43,10 @@ export class ContactService {
       });
       this.contactListChangedEvent.next(this.contacts.slice());
       //this.router.navigate(['/contacts']);
-    },
+    }/*,
     (error:any)=>{
       console.log(error);
-    });
+    }*/);
     return this.contacts.slice();
   }
 

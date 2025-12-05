@@ -37,8 +37,8 @@ export class DocumentService {
       error: (err) => console.error("HTTP error:", err),
       complete: () => console.log("Request completed")
     }*/(documents: any)=>{
-      //console.log("We are getting data");
-      //console.log(documents);
+      console.log("We are getting data");
+      console.log(documents);
       this.documents = documents.documents;
       //this.documents = this.documents.splice(0, 3);
       this.maxDocumentId = this.getMaxId();

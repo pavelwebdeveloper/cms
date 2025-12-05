@@ -2,7 +2,9 @@ var express = require('express');
 var router = express.Router();
 const sequenceGenerator = require('./sequenceGenerator');
 const Contact = require('../models/contact');
+const staticContacts = require('../localJsonData/contacts.json');
 
+/* retrieval of contacts from MongoDB
 router.get('/', (req, res, next) => {
   Contact.find()
     .populate('group')
@@ -18,6 +20,15 @@ router.get('/', (req, res, next) => {
         error: error
       });
     });
+});
+*/
+
+router.get('/', (req, res) => {
+  console.log('GET /contacts called'); // debug log
+  res.status(200).json({
+    message: 'Contacts fetched successfully!',
+    contacts: staticContacts
+  });
 });
 
 
