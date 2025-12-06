@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Positioning navbar menu to the right. */
+.navbar-nav.ml-auto {
+    margin-left: auto !important;
+  }
+
+/* Preventing overflow of the Users dropdown menu. */
+.navbar .dropdown-menu {
+    right: 0;
+    left: auto;
+  }
