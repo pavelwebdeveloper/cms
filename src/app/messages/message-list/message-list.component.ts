@@ -4,6 +4,7 @@ import { Message } from '../message.model';
 import { MessageService } from '../message/message.service';
 import { MessageEditComponent } from '../message-edit/message-edit.component';
 import { CommonModule } from '@angular/common';
+import { MessageItemComponent } from 'src/app/messages/message-item/message-item.component';
 
 @Component({
   selector: 'cms-message-list',
@@ -12,6 +13,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./message-list.component.css'],
   imports: [
     MessageEditComponent,
+    MessageItemComponent,
     CommonModule
   ]
 })

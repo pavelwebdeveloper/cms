@@ -2,8 +2,9 @@ var express = require('express');
 var router = express.Router();
 const sequenceGenerator = require('./sequenceGenerator');
 const Message = require('../models/message');
+const staticMessages = require('../localJsonData/messages.json');
 
-
+/* retrieval of messages from MongoDB
 router.get('/', (req, res, next) => {
   Message.find()
     .then(messages => {
@@ -19,7 +20,15 @@ router.get('/', (req, res, next) => {
       });
     });
 });
+*/
 
+router.get('/', (req, res) => {
+  console.log('GET /messages called'); // debug log
+  res.status(200).json({
+    message: 'Messages fetched successfully!',
+    messages: staticMessages
+  });
+});
 
  router.post('/', (req, res, next) => {
 

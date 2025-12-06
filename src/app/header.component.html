@@ -1,25 +1,35 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <div class="navbar-header">
+
             <a [routerLink]="['/']" class="navbar-brand">We Learn CMS</a>
-        </div>
+
+            <!-- Toggler (Bootstrap 4 requires this) -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
         
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li routerLinkActive="active"><a [routerLink]="['/documents']">Documents</a></li>
-                <li routerLinkActive="active"><a [routerLink]="['/messages']">Messages</a></li>
-                <li routerLinkActive="active"><a [routerLink]="['/contacts']">Contacts</a></li>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item" routerLinkActive="active"><a class="nav-link" [routerLink]="['/documents']">Documents</a></li>
+                <li class="nav-item" routerLinkActive="active"><a class="nav-link" [routerLink]="['/messages']">Messages</a></li>
+                <li class="nav-item" routerLinkActive="active"><a class="nav-link" [routerLink]="['/contacts']">Contacts</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown"
+
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown"
                 appDropdown>
-                    <a class="dropdown-toggle" role="button">Users <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Save Data</a></li>
-                        <li><a href="#">Fetch Data</a></li>
-                    </ul>
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button">Users <span class="caret"></span></a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Save Data</a>
+                        <a class="dropdown-item" href="#">Fetch Data</a>
+                    </div>
                 </li>
             </ul>
+            
         </div>
     </div>
 </nav>
