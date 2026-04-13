@@ -30,13 +30,13 @@ export class DocumentEditComponent implements OnInit {
     .subscribe(
       (params: Params) => {
         this.id = params['id'];
-        
+
         if(!this.id){
           this.editMode = false;
           return;
         }
         this.originalDocument = this.documentService.getDocument(this.id);
-        
+
         if(!this.originalDocument){
           return;
         }
@@ -54,7 +54,8 @@ export class DocumentEditComponent implements OnInit {
   onSubmit(form: NgForm){
     //console.log(form.value);
     const value = form.value;
-    const newDocument = new Document(value.id, value.name, value.description, value.url, null);
+    //const newDocument = new Document(value.id, value.name, value.description, value.url, null);
+    const newDocument = new Document(value.id, value.name, value.url, null);
     if(this.editMode){
       this.documentService.updateDocument(this.originalDocument, newDocument);
     } else {
