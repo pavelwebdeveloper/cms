@@ -1,3 +1,4 @@
+// This code needed when using MongoDB
 var Sequence = require('../models/sequence');
 
 var maxDocumentId;

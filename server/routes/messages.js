@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const sequenceGenerator = require('./sequenceGenerator');
 const Message = require('../models/message');
-const staticMessages = require('../localJsonData/messages.json');
+const messages = require('../localJsonData/messages.json');
 
 /* retrieval of messages from MongoDB
 router.get('/', (req, res, next) => {
@@ -26,15 +26,15 @@ router.get('/', (req, res) => {
   console.log('GET /messages called'); // debug log
   res.status(200).json({
     message: 'Messages fetched successfully!',
-    messages: staticMessages
+    messages: messages
   });
 });
 
  router.post('/', (req, res, next) => {
 
-  
+
     const maxMessageId = sequenceGenerator.nextId("messages");
-  
+
     const message = new Message({
       id: maxMessageId,
       subject: req.body.subject,
@@ -44,7 +44,7 @@ router.get('/', (req, res) => {
 
     console.log("Inside message router.post");
   console.log(message);
-  
+
     message.save()
       .then(createdMessage => {
         res.status(201).json({
@@ -67,7 +67,7 @@ router.get('/', (req, res) => {
         message.subject = req.body.subject;
         message.msgText = req.body.msgText;
         message.sender = req.body.sender;
-  
+
         Message.updateOne({ id: req.params.id }, message)
           .then(result => {
             res.status(204).json({
@@ -114,4 +114,4 @@ router.get('/', (req, res) => {
       });
   });
 
-module.exports = router; 
+module.exports = router;

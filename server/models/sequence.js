@@ -1,3 +1,4 @@
+// This code needed when using MongoDB
 const mongoose = require('mongoose');
 
 const sequenceSchema = mongoose.Schema({

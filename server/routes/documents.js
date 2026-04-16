@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const sequenceGenerator = require('./sequenceGenerator');
 const Document = require('../models/document');
-const staticDocuments = require('../localJsonData/documents.json');
+const documents = require('../localJsonData/documents.json');
 
 /* retrieval of documents from MongoDB
 /*router.get('/', (req, res, next) => {
@@ -25,26 +25,24 @@ router.get('/', (req, res) => {
   console.log('GET /documents called'); // debug log
   res.status(200).json({
     message: 'Documents fetched successfully!',
-    documents: staticDocuments
+    documents: documents
   });
 });
 
- router.post('/', (req, res, next) => {
-
-  
+router.post('/', (req, res, next) => {
 
     const maxDocumentId = sequenceGenerator.nextId("documents");
-  
+
     const document = new Document({
       id: maxDocumentId,
       name: req.body.name,
-      description: req.body.description,
+      //description: req.body.description,
       url: req.body.url
     });
 
     console.log("Inside router.post");
   console.log(document);
-  
+
     document.save()
       .then(createdDocument => {
         res.status(201).json({
@@ -67,7 +65,7 @@ router.get('/', (req, res) => {
         document.name = req.body.name;
         document.description = req.body.description;
         document.url = req.body.url;
-  
+
         Document.updateOne({ id: req.params.id }, document)
           .then(result => {
             res.status(204).json({
@@ -114,4 +112,4 @@ router.get('/', (req, res) => {
       });
   });
 
-module.exports = router; 
+module.exports = router;

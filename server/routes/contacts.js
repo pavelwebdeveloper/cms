@@ -2,7 +2,12 @@ var express = require('express');
 var router = express.Router();
 const sequenceGenerator = require('./sequenceGenerator');
 const Contact = require('../models/contact');
-const staticContacts = require('../localJsonData/contacts.json');
+const contacts = require('../localJsonData/contacts.json');
+
+const fs = require('fs');
+const path = require('path');
+
+const DATA_FILE = path.join(__dirname, '../localJsonData/contacts.json');
 
 /* retrieval of contacts from MongoDB
 router.get('/', (req, res, next) => {
@@ -23,20 +28,28 @@ router.get('/', (req, res, next) => {
 });
 */
 
+// retrieval of contacts from local JSON file
 router.get('/', (req, res) => {
+  const contacts = JSON.parse(fs.readFileSync(DATA_FILE));
+
   console.log('GET /contacts called'); // debug log
   res.status(200).json({
     message: 'Contacts fetched successfully!',
-    contacts: staticContacts
+    contacts: contacts
   });
+
 });
 
 
  router.post('/', (req, res, next) => {
-    const maxContactId = sequenceGenerator.nextId("contacts");
-  
+    // This code needed when using MongoDB
+    //const maxContactId = sequenceGenerator.nextId("contacts");
+
+    const contacts = JSON.parse(fs.readFileSync(DATA_FILE));
+
     const contact = new Contact({
-      id: maxContactId,
+      //id: maxContactId, // This code needed when using sequenceGenerator
+      id: Date.now(),
       name: req.body.name,
       email: req.body.email,
       phone: req.body.phone,
@@ -45,9 +58,13 @@ router.get('/', (req, res) => {
     });
 
     console.log("Inside contact router.post");
-  console.log(contact);
-  
-    contact.save()
+    console.log("Contacts");
+    console.log(contacts);
+    console.log("New contact");
+    console.log(contact);
+
+
+    /*contact.save()
       .then(createdContact => {
         res.status(201).json({
           message: 'Contact added successfully',
@@ -59,6 +76,15 @@ router.get('/', (req, res) => {
             message: 'An error occurred',
             error: error
           });
+      });*/
+
+      contacts.push(contact);
+
+      fs.writeFileSync(DATA_FILE, JSON.stringify(contacts, null, 2));
+
+      res.status(201).json({
+        message: 'Contact added successfully',
+          contact: contact
       });
   });
 
@@ -71,7 +97,7 @@ router.get('/', (req, res) => {
         contact.phone = req.body.phone;
         contact.imageUrl = req.body.imageUrl;
         contact.group = req.body.group;
-  
+
         Contact.updateOne({ id: req.params.id }, contact)
           .then(result => {
             res.status(204).json({
@@ -119,4 +145,4 @@ router.get('/', (req, res) => {
   });
 
 
-module.exports = router; 
+module.exports = router;
