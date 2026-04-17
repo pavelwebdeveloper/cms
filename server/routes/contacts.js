@@ -63,7 +63,7 @@ router.get('/', (req, res) => {
     console.log("New contact");
     console.log(contact);
 
-
+    // This code needed when using MongoDB
     /*contact.save()
       .then(createdContact => {
         res.status(201).json({
@@ -121,7 +121,9 @@ router.get('/', (req, res) => {
 
 
   router.delete("/:id", (req, res, next) => {
-    Contact.findOne({ id: req.params.id })
+
+    // This code needed when using MongoDB
+    /*Contact.findOne({ id: req.params.id })
       .then(contact => {
         Contact.deleteOne({ id: req.params.id })
           .then(result => {
@@ -141,7 +143,18 @@ router.get('/', (req, res) => {
           message: 'Contact not found.',
           error: { contact: 'Contact not found'}
         });
+      });*/
+
+      let contacts = JSON.parse(fs.readFileSync(DATA_FILE));
+
+      contacts = contacts.filter(cont => cont.id != req.params.id);
+
+      fs.writeFileSync(DATA_FILE, JSON.stringify(contacts, null, 2));
+
+      res.status(200).json({
+        message: 'Contact deleted successfully'
       });
+
   });
 
 

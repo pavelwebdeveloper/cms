@@ -152,7 +152,7 @@ export class ContactService {
       return;
     }
 
-    // make sure id of the new Document is empty
+    // make sure id of the new Contact is empty
     contact.id = '';
 
     console.log(contact);
@@ -165,7 +165,7 @@ export class ContactService {
       { headers: headers })
       .subscribe(
         (responseData) => {
-          // add new document to documents
+          // add new document to contacts
           this.contacts.push(responseData.contact);
           //this.sortAndSend();
           //let documentListClone = this.documents.slice();
