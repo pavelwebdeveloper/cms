@@ -45,7 +45,7 @@ router.get('/', (req, res) => {
     // This code needed when using MongoDB
     //const maxContactId = sequenceGenerator.nextId("contacts");
 
-    const contacts = JSON.parse(fs.readFileSync(DATA_FILE));
+    let contacts = JSON.parse(fs.readFileSync(DATA_FILE));
 
     const contact = new Contact({
       //id: maxContactId, // This code needed when using sequenceGenerator
@@ -90,7 +90,23 @@ router.get('/', (req, res) => {
 
 
   router.put('/:id', (req, res, next) => {
-    Contact.findOne({ id: req.params.id })
+
+    let contacts = JSON.parse(fs.readFileSync(DATA_FILE));
+
+    contacts = contacts.map(cont =>
+      cont.id == req.params.id
+        ? { ...cont, ...req.body }
+        : cont
+    );
+
+    fs.writeFileSync(DATA_FILE, JSON.stringify(contacts, null, 2));
+
+    res.status(200).json({
+      message: 'Contact updated successfully'
+    });
+
+    // This code needed when using MongoDB
+    /*Contact.findOne({ id: req.params.id })
       .then(contact => {
         contact.name = req.body.name;
         contact.email = req.body.email;
@@ -116,7 +132,7 @@ router.get('/', (req, res) => {
           message: 'Conctact not found.',
           error: { contact: 'Contact not found'}
         });
-      });
+      });*/
   });
 
 
