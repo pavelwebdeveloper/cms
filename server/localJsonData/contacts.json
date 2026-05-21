@@ -276,13 +276,12 @@
       }
     ]
   },
-  {
-    "id": "1776550534271",
-    "name": "Sasha Shvets",
-    "email": "sasha.v.shvets@gmail.com",
-    "phone": "7807003260",
-    "imageUrl": "",
-    "_id": "69e402861c3e5444743537b8",
-    "group": []
-  }
+      {
+        "id": "101",
+        "name": "Kungu Panda",
+        "email": "panda@byui.edu",
+        "phone": "208-496-3333",
+        "imageUrl": "../../assets/images/panda.jpg",
+        "group": null
+      }
 ]

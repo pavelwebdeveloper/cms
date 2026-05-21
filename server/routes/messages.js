@@ -4,6 +4,11 @@ const sequenceGenerator = require('./sequenceGenerator');
 const Message = require('../models/message');
 const messages = require('../localJsonData/messages.json');
 
+const fs = require('fs');
+const path = require('path');
+
+const DATA_FILE = path.join(__dirname, '../localJsonData/messages.json');
+
 /* retrieval of messages from MongoDB
 router.get('/', (req, res, next) => {
   Message.find()
@@ -32,19 +37,18 @@ router.get('/', (req, res) => {
 
  router.post('/', (req, res, next) => {
 
-
-    const maxMessageId = sequenceGenerator.nextId("messages");
+    //const maxMessageId = sequenceGenerator.nextId("messages");
 
     const message = new Message({
-      id: maxMessageId,
+      //id: maxMessageId, // This code needed when using sequenceGenerator
+      id: Date.now(),
       subject: req.body.subject,
       msgText: req.body.msgText,
       sender: req.body.sender
     });
 
-    console.log("Inside message router.post");
-  console.log(message);
-
+    // This code needed when using MongoDB
+    /*
     message.save()
       .then(createdMessage => {
         res.status(201).json({
@@ -58,10 +62,35 @@ router.get('/', (req, res) => {
             error: error
           });
       });
+      */
+
+      messages.push(message);
+
+            fs.writeFileSync(DATA_FILE, JSON.stringify(messages, null, 2));
+
+            res.status(201).json({
+              message: 'Message added successfully',
+                message: message
+            });
   });
 
 
   router.put('/:id', (req, res, next) => {
+
+    messages = messages.map(cont =>
+      mess.id == req.params.id
+        ? { ...mess, ...req.body }
+        : mess
+    );
+
+    fs.writeFileSync(DATA_FILE, JSON.stringify(messages, null, 2));
+
+    res.status(200).json({
+      message: 'Messages updated successfully'
+    });
+
+    // This code needed when using MongoDB
+    /*
     Message.findOne({ id: req.params.id })
       .then(message => {
         message.subject = req.body.subject;
@@ -87,10 +116,14 @@ router.get('/', (req, res) => {
           error: { message: 'Message not found'}
         });
       });
+      */
   });
 
 
   router.delete("/:id", (req, res, next) => {
+
+    // This code needed when using MongoDB
+    /*
     Message.findOne({ id: req.params.id })
       .then(message => {
         Message.deleteOne({ id: req.params.id })
@@ -112,6 +145,16 @@ router.get('/', (req, res) => {
           error: { message: 'Message not found'}
         });
       });
+      */
+
+      messages = messages.filter(mess => mess.id != req.params.id);
+
+      fs.writeFileSync(DATA_FILE, JSON.stringify(messages, null, 2));
+
+      res.status(200).json({
+        message: 'Maessage deleted successfully'
+      });
+
   });
 
 module.exports = router;

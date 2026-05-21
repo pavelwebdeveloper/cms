@@ -1,13 +1,14 @@
 var express = require('express');
 var router = express.Router();
-const sequenceGenerator = require('./sequenceGenerator');
+//const sequenceGenerator = require('./sequenceGenerator');
 const Contact = require('../models/contact');
-const contacts = require('../localJsonData/contacts.json');
+let contacts = require('../localJsonData/contacts.json');
 
 const fs = require('fs');
 const path = require('path');
 
 const DATA_FILE = path.join(__dirname, '../localJsonData/contacts.json');
+//const contacts = JSON.parse(fs.readFileSync(DATA_FILE));
 
 /* retrieval of contacts from MongoDB
 router.get('/', (req, res, next) => {
@@ -30,7 +31,7 @@ router.get('/', (req, res, next) => {
 
 // retrieval of contacts from local JSON file
 router.get('/', (req, res) => {
-  const contacts = JSON.parse(fs.readFileSync(DATA_FILE));
+  //const contacts = JSON.parse(fs.readFileSync(DATA_FILE));
 
   console.log('GET /contacts called'); // debug log
   res.status(200).json({
@@ -45,7 +46,7 @@ router.get('/', (req, res) => {
     // This code needed when using MongoDB
     //const maxContactId = sequenceGenerator.nextId("contacts");
 
-    let contacts = JSON.parse(fs.readFileSync(DATA_FILE));
+    //const contacts = JSON.parse(fs.readFileSync(DATA_FILE));
 
     const contact = new Contact({
       //id: maxContactId, // This code needed when using sequenceGenerator
@@ -56,12 +57,6 @@ router.get('/', (req, res) => {
       imageUrl: req.body.imageUrl,
       group: req.body.group
     });
-
-    console.log("Inside contact router.post");
-    console.log("Contacts");
-    console.log(contacts);
-    console.log("New contact");
-    console.log(contact);
 
     // This code needed when using MongoDB
     /*contact.save()
@@ -91,7 +86,7 @@ router.get('/', (req, res) => {
 
   router.put('/:id', (req, res, next) => {
 
-    let contacts = JSON.parse(fs.readFileSync(DATA_FILE));
+    //const contacts = JSON.parse(fs.readFileSync(DATA_FILE));
 
     contacts = contacts.map(cont =>
       cont.id == req.params.id
@@ -161,7 +156,7 @@ router.get('/', (req, res) => {
         });
       });*/
 
-      let contacts = JSON.parse(fs.readFileSync(DATA_FILE));
+      //const contacts = JSON.parse(fs.readFileSync(DATA_FILE));
 
       contacts = contacts.filter(cont => cont.id != req.params.id);
 
