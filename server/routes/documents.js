@@ -70,7 +70,7 @@ router.post('/', (req, res, next) => {
 
       res.status(201).json({
             message: 'Document added successfully',
-              contact: dcument
+              document: document
           });
   });
 

@@ -19,16 +19,25 @@
           </div>
         </div>
       </div>
-  
+
 <div class="panel-body">
-    <div class="row">
-    <div class="col-xs-12">
-        <cms-contact-item
-        *ngFor="let singleContact of contacts | contactsFilter:term"
-        [contact]="singleContact"
-        cdkDrag [dragData]="singleContact" [dropZones]="['contactGroup']"></cms-contact-item>
-    </div>
-    </div>
+
+<div class="row">
+      <div class="col-xs-12"
+        cdkDropList
+        id="availableList">
+
+          <div
+            *ngFor="let singleContact of contacts | contactsFilter:term"
+            cdkDrag
+            [cdkDragData]="singleContact">
+
+            <cms-contact-item
+              [contact]="singleContact"
+            ></cms-contact-item>
+        </div>
+      </div>
 </div>
+
 
 </div>

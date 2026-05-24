@@ -3,13 +3,17 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Contact } from '../contact.model';
 import { ContactService } from '../contact/contact.service';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'cms-contact-detail',
   standalone: true,
   templateUrl: './contact-detail.component.html',
   styleUrls: ['./contact-detail.component.css'],
-  imports: [RouterModule]
+  imports: [
+    CommonModule,
+    RouterModule
+  ]
 })
 export class ContactDetailComponent implements OnInit {
   //@Input() contact: Contact;

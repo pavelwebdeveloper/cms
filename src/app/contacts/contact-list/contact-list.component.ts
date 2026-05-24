@@ -8,6 +8,11 @@ import { ContactsFilterPipe } from '../contacts-filter.pipe';
 import { CommonModule } from '@angular/common';
 import { ContactItemComponent } from 'src/app/contact-item/contact-item.component';
 //import { ContactItemComponent } from '../contact-item/contact-item.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import {
+  CdkDrag,
+  CdkDropList
+} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'cms-contact-list',
@@ -15,7 +20,10 @@ import { ContactItemComponent } from 'src/app/contact-item/contact-item.componen
   templateUrl: './contact-list.component.html',
   styleUrls: ['./contact-list.component.css'],
   imports: [
-    RouterModule, 
+    CdkDrag,
+    CdkDropList,
+    DragDropModule,
+    RouterModule,
     CommonModule,
     ContactItemComponent,
     ContactsFilterPipe

@@ -276,12 +276,21 @@
       }
     ]
   },
-      {
-        "id": "101",
-        "name": "Kungu Panda",
-        "email": "panda@byui.edu",
-        "phone": "208-496-3333",
-        "imageUrl": "../../assets/images/panda.jpg",
-        "group": null
-      }
+  {
+    "id": "101",
+    "name": "Kungu Panda",
+    "email": "panda@byui.edu",
+    "phone": "208-496-3333",
+    "imageUrl": "../../assets/images/panda.jpg",
+    "group": null
+  },
+  {
+    "id": "1779335201037",
+    "name": "Pavlo Shvets",
+    "email": "pavel.v.shvets@gmail.com",
+    "phone": "7807003260",
+    "imageUrl": "",
+    "_id": "6a0e8021693ac62948418c1c",
+    "group": []
+  }
 ]

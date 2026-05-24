@@ -97,7 +97,7 @@ router.get('/', (req, res) => {
     fs.writeFileSync(DATA_FILE, JSON.stringify(contacts, null, 2));
 
     res.status(200).json({
-      message: 'Contact updated successfully'
+      message: 'Contacts updated successfully'
     });
 
     // This code needed when using MongoDB

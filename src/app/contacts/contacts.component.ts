@@ -3,13 +3,18 @@ import { Contact } from './contact.model';
 import { ContactService } from './contact/contact.service';
 import { RouterOutlet } from '@angular/router';
 import { ContactListComponent } from './contact-list/contact-list.component';
+import { CdkDropListGroup } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'cms-contacts',
   standalone: true,
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.css'],
-  imports: [RouterOutlet, ContactListComponent]
+  imports: [
+    RouterOutlet,
+    ContactListComponent,
+    CdkDropListGroup
+  ]
 })
 export class ContactsComponent implements OnInit {
   selectedContact: Contact;

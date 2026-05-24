@@ -11,13 +11,19 @@ import {
   moveItemInArray,
 } from '@angular/cdk/drag-drop';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'cms-contact-edit',
   standalone: true,
   templateUrl: './contact-edit.component.html',
   styleUrls: ['./contact-edit.component.css'],
-  imports: [CdkDrag, CdkDropList, FormsModule]
+  imports: [
+    CommonModule,
+    CdkDrag,
+    CdkDropList,
+    FormsModule
+  ]
 })
 export class ContactEditComponent implements OnInit {
 
@@ -38,7 +44,7 @@ export class ContactEditComponent implements OnInit {
     .subscribe(
       (params: Params) => {
         this.id = params['id'];
-        
+
         if(!this.id){
           this.editMode = false;
           console.log("EDIT MODE");
@@ -46,7 +52,7 @@ export class ContactEditComponent implements OnInit {
           return;
         }
         this.originalContact = this.contactService.getContact(this.id);
-        
+
         if(!this.originalContact){
           return;
         }
@@ -60,12 +66,12 @@ export class ContactEditComponent implements OnInit {
           this.groupContacts = JSON.parse(JSON.stringify(this.originalContact.group));
           console.log("GROUP");
           console.log(this.contact.group);
-        }   
-      } 
-      
-       
-    ) 
-    
+        }
+      }
+
+
+    )
+
   }
 
   onCancel(){
@@ -99,8 +105,10 @@ export class ContactEditComponent implements OnInit {
     return false;
   }
 
-  addToGroup($event: any){
-    const selectedContact: Contact = $event.dragData;
+  addToGroup($event: CdkDragDrop<any>){
+    console.log("$event.item.data §§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§");
+    console.log($event.item.data);
+    const selectedContact: Contact = $event.item.data;
     const invalidGroupContact = this.isInvalidContact(selectedContact);
     if(invalidGroupContact){
       this.invalidGroupContactAdded = true;
