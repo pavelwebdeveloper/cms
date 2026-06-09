@@ -282,7 +282,24 @@
     "email": "panda@byui.edu",
     "phone": "208-496-3333",
     "imageUrl": "../../assets/images/panda.jpg",
-    "group": null
+    "group": [
+      {
+        "id": "8",
+        "name": "Craig Lindstrom",
+        "email": "lindstromc@byui.edu",
+        "phone": "208-496-3769",
+        "imageUrl": "../../assets/images/lindstromc.jpg",
+        "group": null
+      },
+      {
+        "id": "15",
+        "name": "Blaine Robertson",
+        "email": "robertsonb@byui.edu",
+        "phone": "208-496-3775",
+        "imageUrl": "../../assets/images/robertsonb.jpg",
+        "group": null
+      }
+    ]
   },
   {
     "id": "1779335201037",

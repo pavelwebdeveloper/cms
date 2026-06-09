@@ -94,6 +94,9 @@ router.get('/', (req, res) => {
         : cont
     );
 
+    console.log("Contacts on server before writing to json file =================");
+    console.log(contacts);
+
     fs.writeFileSync(DATA_FILE, JSON.stringify(contacts, null, 2));
 
     res.status(200).json({

@@ -16,7 +16,7 @@ export class ContactService {
   contactListChangedEvent = new Subject<Contact[]>();
   //maxContactId: number;
 
-  constructor(private http: HttpClient, private router: Router) { 
+  constructor(private http: HttpClient, private router: Router) {
     //this.contacts = MOCKCONTACTS;
    }
 
@@ -33,11 +33,11 @@ export class ContactService {
       //console.log("this.maxDocumentId");
       //console.log(this.maxContactId);
       this.contacts = this.contacts.sort((currentElement, nextElement)=>{
-        if(currentElement.name < nextElement.name){          
+        if(currentElement.name < nextElement.name){
           return -1;
-        } else if(currentElement.name > nextElement.name){          
+        } else if(currentElement.name > nextElement.name){
           return 1;
-        } else {          
+        } else {
           return 0;
         }
       });
@@ -58,7 +58,7 @@ export class ContactService {
     this.http.put('http://localhost:3000/contacts', putData, {headers})
     .subscribe(() => {
       this.contacts = this.contacts.sort((currentElement, nextElement)=>{
-        if(currentElement.name < nextElement.name){          
+        if(currentElement.name < nextElement.name){
           return -1;
         } else if(currentElement.name > nextElement.name){
           return 1;
@@ -69,7 +69,7 @@ export class ContactService {
       this.contactListChangedEvent.next(this.contacts.slice());
     })
   }*/
-  
+
 
   getContact(id: string): Contact{
      for(let i=0;i<this.contacts.length;i++){
@@ -97,13 +97,13 @@ export class ContactService {
       if (!contact) {
         return;
       }
-    
+
       const pos = this.contacts.findIndex(c => c.id === contact.id);
-    
+
       if (pos < 0) {
         return;
       }
-    
+
       // delete from database
       this.http.delete('http://localhost:3000/contacts/' + contact.id)
         .subscribe(
@@ -119,8 +119,8 @@ export class ContactService {
 
       let maxId = 0;
       let currentId = 0;
-  
-     
+
+
 
       this.contacts.map((contact) => {
           currentId = +contact.id;
@@ -128,16 +128,16 @@ export class ContactService {
             maxId = currentId;
           }
       });
-      
+
       return maxId;
     }*/
-  
+
     // addContact method as it worked with FireBase
     /*addContact(newContact: Contact){
       if(!newContact){
         return;
       }
-  
+
       this.maxContactId++;
       newContact.id = this.maxContactId.toString();
       this.contacts.push(newContact);
@@ -174,18 +174,18 @@ export class ContactService {
         }
       );
   }
-  
+
     // updateContact method as it worked with FireBase
     /*updateContact(originalContact: Contact, newContact: Contact) {
       if(!originalContact || !newContact){
         return;
       }
-  
+
       let pos = this.contacts.indexOf(originalContact);
       if(pos < 0){
         return;
       }
-  
+
       newContact.id = originalContact.id;
       this.contacts[pos] = newContact;
       let documentListClone = this.contacts.slice();
@@ -194,6 +194,10 @@ export class ContactService {
 
       // updateContact method implemented in a new way to
   updateContact(originalContact: Contact, newContact: Contact) {
+
+    console.log("Inside contact.service");
+    console.log("+++++++++++++++++++++++++++++++++++++///////////////");
+    console.log(Contact);
     if (!originalContact || !newContact) {
       return;
     }

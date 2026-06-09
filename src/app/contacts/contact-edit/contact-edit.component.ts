@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Contact } from '../contact.model';
 import { ContactService } from '../contact/contact.service';
+import { ContactItemComponent } from 'src/app/contact-item/contact-item.component';
 import {
   CdkDrag,
   CdkDragDrop,
@@ -22,7 +23,8 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     CdkDrag,
     CdkDropList,
-    FormsModule
+    FormsModule,
+    ContactItemComponent
   ]
 })
 export class ContactEditComponent implements OnInit {
@@ -68,7 +70,6 @@ export class ContactEditComponent implements OnInit {
           console.log(this.contact.group);
         }
       }
-
 
     )
 
