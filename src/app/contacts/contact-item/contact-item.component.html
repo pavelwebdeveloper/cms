@@ -1,0 +1,15 @@
+<a
+        class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+        [routerLink]="contact.id"
+        routerLinkActive="active">
+            <div>
+                <h4>{{ contact.name }}</h4>
+            </div>
+            <span>
+                <img
+                [src]="contact.imageUrl"
+                alt="{{ contact.name }}"
+                class="img-fluid"
+                style="max-height: 50px;">
+            </span>
+        </a>

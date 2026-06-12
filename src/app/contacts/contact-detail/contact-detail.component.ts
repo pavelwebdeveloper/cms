@@ -4,6 +4,7 @@ import { Contact } from '../contact.model';
 import { ContactService } from '../contact/contact.service';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ContactItemComponent } from '../contact-item/contact-item.component';
 
 @Component({
   selector: 'cms-contact-detail',
@@ -12,7 +13,8 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./contact-detail.component.css'],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ContactItemComponent
   ]
 })
 export class ContactDetailComponent implements OnInit {

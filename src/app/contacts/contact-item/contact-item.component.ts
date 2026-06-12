@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Contact } from '../contacts/contact.model';
+import { Contact } from 'src/app/contacts/contact.model';
 import { RouterModule } from '@angular/router';
 
 

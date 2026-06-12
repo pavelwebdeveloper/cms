@@ -284,19 +284,27 @@
     "imageUrl": "../../assets/images/panda.jpg",
     "group": [
       {
-        "id": "8",
-        "name": "Craig Lindstrom",
-        "email": "lindstromc@byui.edu",
-        "phone": "208-496-3769",
-        "imageUrl": "../../assets/images/lindstromc.jpg",
-        "group": null
-      },
-      {
         "id": "15",
         "name": "Blaine Robertson",
         "email": "robertsonb@byui.edu",
         "phone": "208-496-3775",
         "imageUrl": "../../assets/images/robertsonb.jpg",
+        "group": null
+      },
+      {
+        "id": "11",
+        "name": "Brent Morring",
+        "email": "morringb@byui.edu",
+        "phone": "208-496-3778",
+        "imageUrl": "../../assets/images/morringb.jpg",
+        "group": null
+      },
+      {
+        "id": "2",
+        "name": "Bradley Armstrong",
+        "email": "armstrongb@byui.edu",
+        "phone": "208-496-3766",
+        "imageUrl": "../../assets/images/armstrongb.jpg",
         "group": null
       }
     ]

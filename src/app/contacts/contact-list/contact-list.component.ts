@@ -6,7 +6,7 @@ import { ContactService } from '../contact/contact.service';
 import { RouterModule } from '@angular/router';
 import { ContactsFilterPipe } from '../contacts-filter.pipe';
 import { CommonModule } from '@angular/common';
-import { ContactItemComponent } from 'src/app/contact-item/contact-item.component';
+import { ContactItemComponent } from '../contact-item/contact-item.component';
 //import { ContactItemComponent } from '../contact-item/contact-item.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import {

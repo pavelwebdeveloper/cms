@@ -1,38 +1,41 @@
-<div class="panel panel-default">
-    <div class="panel-heading">
+<div class="card">
+    <div class="card-header">
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-12">
                 <h4>{{ contact.name }}</h4>
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-7">
+            <div class="col-7">
                 <span>
-                    <img 
+                    <img
                     [src]="contact.imageUrl"
-                    alt="{{ contact.name }}" 
-                    class="image-responsive" 
+                    alt="{{ contact.name }}"
+                    class="img-fluid"
                     style="max-height: 50px;">
                 </span>
             </div>
-        <div class="col-xs-5">
-            <a class="btn btn-success" [routerLink]="['/contacts', id, 'edit']">Edit</a>
+        <div class="col-5">
+            <a class="btn btn-success mr-2" [routerLink]="['/contacts', id, 'edit']">Edit</a>
             <a class="btn btn-danger" (click)="onDelete()">Delete</a>
         </div>
         </div>
     </div>
-    <div class="panel-body">
+    <div class="card-body">
         <div class="row">
-        <div class="col-xs-12">
+        <div class="col-12">
             <p><b>Email: </b>{{ contact.email }}</p>
             <p><b>Phone: </b>{{ contact.phone }}</p>
         </div>
     </div>
     <div *ngFor="let contact of contact.group; let i = index">
         <div>
-          <cms-contact-item class="col-sm-11" [contact]="contact"></cms-contact-item>
+          <cms-contact-item
+            class="col-sm-11"
+            [contact]="contact">
+          </cms-contact-item>
         </div>
       </div>
     </div>
-    
+
 </div>

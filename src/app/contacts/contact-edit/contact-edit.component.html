@@ -77,7 +77,7 @@
               It is already in group or is the current contact
             </div>
 
-            <div class="row" id="groupList"
+            <div class="list-group" id="groupList"
                 style="min-height: 3rem;"
                 cdkDropList
                 #groupListRef="cdkDropList"
@@ -86,8 +86,11 @@
                 (cdkDropListDropped)="addToGroup($event)">
 
               <div *ngFor="let contact of groupContacts; let i = index">
-                <div>
-                  <cms-contact-item class="col-sm-11" [contact]="contact"></cms-contact-item>
+                <div class="list-group-item">
+                    <cms-contact-item
+                      class="col-sm-11"
+                      [contact]="contact">
+                    </cms-contact-item>
                   <button class="btn btn-danger col-sm-2 deleteButton" (click)="onRemoveItem(i)">X</button>
                 </div>
               </div>

@@ -1,3 +1,11 @@
 h4{
     font-weight: bold;
 }
+
+.list-group-item{
+  padding: 0;
+}
+
+.new-contact-button{
+  margin: 1em 0 1em 0;
+}

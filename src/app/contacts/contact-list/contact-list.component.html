@@ -1,18 +1,30 @@
-<div class="panel panel-default">
+<div class="card">
     <div class="row">
-        <div class="col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">
+        <div class="col">
+          <div class="card">
+            <div class="card-header">
               <div class="row">
-                <span class="title pad-left-right">Contacts</span>
+                <h4>Contacts</h4>
               </div>
+
               <div class="row">
-                <div class="input-group pull-left pad-left-right col-xs-7">
-                  <input type="text" class="form-control" placeholder="Enter a search value" #searchBox (keyup)="search(searchBox.value)">
-                  <div class="glyphicon glyphicon-search input-group-addon" (click)="search(searchBox.value)"></div>
+                <div class="col-md-7">
+                  <div class="input-group">
+                    <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter a search value"
+                    #searchBox
+                    (keyup)="search(searchBox.value)">
+
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" (click)="search(searchBox.value)">Search</button>
+                  </div>
                 </div>
-                <div class="pull-right pad-left-right">
-                  <a class="btn btn-success" [routerLink]="['new']">New Contact</a>
+
+                </div>
+                <div class="container">
+                  <a type="button" class="btn btn-success new-contact-button" [routerLink]="['new']">New Contact</a>
                 </div>
               </div>
             </div>
@@ -20,24 +32,21 @@
         </div>
       </div>
 
-<div class="panel-body">
 
-<div class="row">
-      <div class="col-xs-12"
+      <div
+        class="list-group"
         cdkDropList
         id="availableList">
 
           <div
             *ngFor="let singleContact of contacts | contactsFilter:term"
             cdkDrag
-            [cdkDragData]="singleContact">
+            [cdkDragData]="singleContact"
+            class="list-group-item">
 
             <cms-contact-item
               [contact]="singleContact"
             ></cms-contact-item>
         </div>
       </div>
-</div>
 
-
-</div>
