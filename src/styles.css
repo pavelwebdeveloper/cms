@@ -10,3 +10,12 @@
     right: 0;
     left: auto;
   }
+
+a.item-button, button.item-button{
+  width: 7em;
+  margin: 0.2em;
+}
+
+a.add-item-link{
+  width: 10em;
+}
