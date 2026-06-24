@@ -78,11 +78,17 @@ router.post('/', (req, res, next) => {
 
   router.put('/:id', (req, res, next) => {
 
-    documents = documents.map(cont =>
-      cont.id == req.params.id
+    console.log("Let us look at the req.params.id");
+    console.log(req.params.id);
+
+    documents = documents.map(doc =>
+      doc.id == req.params.id
         ? { ...doc, ...req.body }
         : doc
     );
+
+    console.log("Let us look at the documents");
+    console.log(documents);
 
     fs.writeFileSync(DATA_FILE, JSON.stringify(documents, null, 2));
 
