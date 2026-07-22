@@ -2,15 +2,25 @@
 .center-panel {
     margin-left: auto;
     margin-right: auto;
-    width: 38rem;
+    width: 30rem;
   }
-  
+
   .title {
     font-size: 2.5rem;
     font-weight: bold;
   }
-  
+
   .pad-left-right{
-    padding-left:1rem;
-    padding-right:1rem;
+    padding-left:0.5rem;
+    padding-right:0.5rem;
   }
+
+  .document-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.1rem;
+}
+
+.document-grid > cms-document-item {
+    flex: 0 0 auto;
+}
