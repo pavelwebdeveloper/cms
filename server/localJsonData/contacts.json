@@ -282,32 +282,7 @@
     "email": "panda@byui.edu",
     "phone": "208-496-3333",
     "imageUrl": "../../assets/images/panda.jpg",
-    "group": [
-      {
-        "id": "15",
-        "name": "Blaine Robertson",
-        "email": "robertsonb@byui.edu",
-        "phone": "208-496-3775",
-        "imageUrl": "../../assets/images/robertsonb.jpg",
-        "group": null
-      },
-      {
-        "id": "11",
-        "name": "Brent Morring",
-        "email": "morringb@byui.edu",
-        "phone": "208-496-3778",
-        "imageUrl": "../../assets/images/morringb.jpg",
-        "group": null
-      },
-      {
-        "id": "2",
-        "name": "Bradley Armstrong",
-        "email": "armstrongb@byui.edu",
-        "phone": "208-496-3766",
-        "imageUrl": "../../assets/images/armstrongb.jpg",
-        "group": null
-      }
-    ]
+    "group": null
   },
   {
     "id": "1779335201037",
@@ -316,6 +291,6 @@
     "phone": "7807003260",
     "imageUrl": "",
     "_id": "6a0e8021693ac62948418c1c",
-    "group": []
+    "group": null
   }
 ]
