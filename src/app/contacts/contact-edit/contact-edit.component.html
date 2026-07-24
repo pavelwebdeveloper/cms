@@ -88,10 +88,10 @@
                 (cdkDropListDropped)="addToGroup($event)">
 
               <div *ngFor="let contact of groupContacts; let i = index" class="list-group-item">
-                <div class="d-flex flex-row">
+                <div class="d-flex flex-row group-contact">
                     <cms-contact-item
                       [contact]="contact"
-                      class="col-sm-10">
+                      class="col-sm-10 group-contact-name-and-image">
                     </cms-contact-item>
                     <div>
                       <button class="btn btn-danger deleteButton" (click)="onRemoveItem(i)">X</button>

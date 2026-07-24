@@ -33,3 +33,11 @@
   .list-group-item{
   padding: 0;
   }
+
+  .group-contact{
+    justify-content: space-between !important;
+  }
+
+  .group-contact-name-and-image{
+    flex-grow: 1;
+  }
